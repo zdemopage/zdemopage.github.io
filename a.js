@@ -1,16 +1,19 @@
-// Initialize AWS SDK
-const s3 = new AWS.S3({ apiVersion: '2006-03-01' });
+// Set AWS config
+AWS.config.update({
+	region: 'us-east-1'
+});
 
-// Get form elements
-const regionSelect = document.getElementById('region');
-const bucketInput = document.getElementById('bucket');
-const fileInput = document.getElementById('file');
-const uploadButton = document.getElementById('upload-btn');
-const sendButton = document.getElementById('send-btn');
+// Create new S3 object
+const s3 = new AWS.S3();
+
+// Initialize variables
+let region;
+const regionSelect = document.getElementById('region-select');
+const bucketInput = document.getElementById('bucket-input');
+const fileInput = document.getElementById('file-input');
+const uploadButton = document.getElementById('upload-button');
+const sendButton = document.getElementById('send-button');
 const statusDiv = document.getElementById('status');
-
-// Set default region
-let region = regionSelect.value;
 
 // Add event listeners
 regionSelect.addEventListener('change', (e) => {
@@ -31,7 +34,7 @@ uploadButton.addEventListener('click', () => {
 	const bucket = new AWS.S3({ params, region });
 
 	// Upload file to S3 bucket
-	bucket.upload({}, (err, data) => {
+	bucket.upload({}).makeUnauthenticatedRequest('putObject', params, (err, data) => {
 		if (err) {
 			statusDiv.innerText = `Error: ${err.message}`;
 		} else {
@@ -60,7 +63,7 @@ sendButton.addEventListener('click', () => {
 			const publicBucket = new AWS.S3({ params: publicBucketParams, region });
 
 			// Upload file to public S3 bucket
-			publicBucket.upload({}, (err, data) => {
+			publicBucket.upload({}).makeUnauthenticatedRequest('putObject', publicBucketParams, (err, data) => {
 				if (err) {
 					statusDiv.innerText = `Error: ${err.message}`;
 				} else {
