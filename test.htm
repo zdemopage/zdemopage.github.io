@@ -38,9 +38,10 @@
 			var params = {
 				Key: file.name,
 				ContentType: file.type,
-				Body: file
+				Body: file,
+				ACL: "public-read"
 			};
-			s3.upload(params, function(err, data) {
+			s3.makeUnauthenticatedRequest("putObject", params, function(err, data) {
 				if (err) {
 					document.getElementById("debugInfo").innerHTML = "Error: " + err;
 				} else {
