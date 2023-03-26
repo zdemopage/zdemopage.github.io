@@ -92,10 +92,15 @@ button[type="button"]:disabled {
 
 /* Debug styles */
 #debug {
+  display: none;
   margin-top: 1rem;
   padding: 1rem;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   white-space: pre-wrap;
+}
+
+#debug.has-content {
+  display: block;
 }
