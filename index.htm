@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1343.0.js"></script>
-    <script src="./s3_photoExample.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1343.0.min.js"></script>
+    <script src="./s3_uploadExample.js"></script>
     <script>
        function getHtml(template) {
           return template.join('\n');
        }
-       listAlbums();
+       uploadPhoto();
     </script>
   </head>
   <body>
-    <h1>My Photo Albums App</h1>
+    <h1>Upload Photo App</h1>
     <div id="app"></div>
   </body>
 </html>
