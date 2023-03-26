@@ -1,149 +1,38 @@
-/* Form styles */
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem 0;
-  max-width: 40rem;
-  width: 100%;
-}
-
-form label,
-form input,
-form button {
-  margin: 0.5rem 0;
-}
-
-form label {
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-form input[type="text"],
-form input[type="file"] {
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 0.3rem;
-  width: 100%;
-  max-width: 30rem;
-}
-
-form button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #0062cc;
-}
-
-/* Debug div styles */
-#debug {
-  background-color: #1e1e1e;
-  color: #d4d4d4;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 16px;
-  padding: 20px;
-  margin-top: 20px;
-  white-space: pre-wrap;
-  position: relative;
-}
-
-#debug::before {
-  content: 'Debug Information';
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  display: block;
-}
-
-#debug .copy-button {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  padding: 5px;
-  border: none;
-  border-radius: 3px;
-  background-color: #0d0d0d;
-  color: #d4d4d4;
-  font-family: 'Courier New', Courier, monospace;
+body {
+  font-family: Arial, sans-serif;
   font-size: 14px;
-  cursor: pointer;
 }
 
-#debug pre {
-  margin: 0;
-  padding: 0;
+h1 {
+  text-align: center;
 }
 
-#debug pre::-moz-selection {
-  background-color: #5f5f5f;
-  color: #d4d4d4;
+form {
+  margin: 0 auto;
+  max-width: 500px;
 }
 
-#debug pre::selection {
-  background-color: #5f5f5f;
-  color: #d4d4d4;
+label {
+  display: inline-block;
+  width: 100px;
 }
 
-#debug pre code {
-  display: block;
-  padding: 0;
-  margin: 0;
+input[type="text"],
+input[type="file"],
+select {
+  width: 300px;
+  margin-bottom: 10px;
 }
 
-#debug pre code span {
-  display: inline;
+button {
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
-#debug pre code span.comment {
-  color: #7f7f7f;
+#debug {
+  margin-top: 20px;
+  max-width: 500px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  white-space: pre-wrap;
 }
-
-#debug pre code span.keyword {
-  color: #d4d4d4;
-}
-
-#debug pre code span.string {
-  color: #d4b84d;
-}
-
-#debug pre code span.number {
-  color: #b5cea8;
-}
-
-#debug pre code span.boolean {
-  color: #569cd6;
-}
-
-#debug pre code span.null {
-  color: #569cd6;
-}
-
-#debug pre code span.undefined {
-  color: #569cd6;
-}
-
-#debug pre code span.variable {
-  color: #9cdcfe;
-}
-
-#debug pre code span.function {
-  color: #dcdcaa;
-}
-
-#debug pre code span.operator {
-  color: #d4d4d4;
-}
-
-#debug pre code span.punctuation {
-  color: #d4d4d4;
-}
-
