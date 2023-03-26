@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload to Public S3 Bucket</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Upload to Public S3 Bucket</h1>
+		<form>
+			<label for="region">Select a region:</label>
+			<select id="region" name="region">
+        <option value="eu-west-1">eu-west-1</option>
+        <option value="eu-west-2">eu-west-2</option>
+        <option value="eu-west-3">eu-west-3</option>
+        <option value="us-east-1">us-east-1</option>
+        <option value="us-east-2">us-east-2</option>
+        <option value="us-west-1">us-west-1</option>
+        <option value="us-west-2">us-west-2</option>
+        <option value="sa-east-1">sa-east-1</option>
+        <option value="ca-central-1">ca-central-1</option>
+        <option value="eu-central-1">eu-central-1</option>
+        <option value="ap-south-1">ap-south-1</option>
+        <option value="ap-northeast-1">ap-northeast-1</option>
+        <option value="ap-northeast-2">ap-northeast-2</option>
+        <option value="ap-southeast-1">ap-southeast-1</option>
+        <option value="ap-southeast-2">ap-southeast-2</option>
+			</select>
+
+			<label for="bucket">Enter bucket name:</label>
+			<input type="text" id="bucket" name="bucket">
+
+			<label for="file">Choose a file to upload:</label>
+			<input type="file" id="file" name="file">
+
+			<button type="button" id="upload-btn">Upload</button>
+			<button type="button" id="send-btn">Send to Public S3 Bucket</button>
+		</form>
+		<div id="status"></div>
+	</div>
+
+	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.933.0.min.js"></script>
+	<script src="a.js"></script>
+</body>
+</html>
