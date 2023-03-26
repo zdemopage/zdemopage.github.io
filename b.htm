@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>Upload Photo</title>
+	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.986.0.min.js"></script>
+
+	<script>
+	
+	function uploadObject() {
+  // Selecione o arquivo do input de upload
+  var fileInput = document.getElementById("fileInput");
+  console.log("fileInput:", fileInput); // Verifique se o elemento HTML foi encontrado corretamente
+
+  var file = fileInput.files[0];
+  console.log("file:", file); // Verifique se o arquivo foi selecionado corretamente
+
+  // Resto do código para enviar o arquivo para o bucket S3
+}
+
+	// Crie um objeto S3
+var s3 = new AWS.S3({
+  apiVersion: "2006-03-01",
+  region: "eu-west-1",
+  signatureVersion: "v4"
+});
+
+// Defina a propriedade "signRequest" como false para enviar a solicitação sem autenticação
+s3.config.update({
+  signRequest: false
+});
+
+// Selecione o arquivo do input de upload
+var file = document.getElementById("fileInput").files[0];
+
+// Crie um objeto de parâmetros para enviar o arquivo para o bucket S3
+var params = {
+  Bucket: "uber",
+  Key: file.name,
+  Body: file,
+  ACL: "public-read"
+};
+
+// Envie o arquivo para o bucket S3 sem autenticação
+s3.upload(params, function(err, data) {
+  if (err) {
+    console.log(err, err.stack);
+  } else {
+    console.log("Arquivo enviado com sucesso para o S3:", data.Location);
+  }
+});
+
+
+
+	</script>
+
+
+  </head>
+  <body>
+    <h1>Bem-vindo Gostosão</h1>
+    <form>
+  <input type="file" id="fileInput">
+  <button type="button" onclick="uploadObject()">Enviar arquivo</button>
+</form>
+
+
+
+
+  </body>
+</html>
