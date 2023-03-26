@@ -1,42 +1,42 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>AWS S3 File Uploader</title>
-		<link rel="stylesheet" href="styles.css">
-	</head>
-	<body>
-		<h1>AWS S3 File Uploader</h1>
-		<form>
-			<label for="region">Select a region:</label>
-			<select id="region">
-				<option value="eu-west-1">eu-west-1</option>
-				<option value="eu-west-2">eu-west-2</option>
-				<option value="eu-west-3">eu-west-3</option>
-				<option value="eu-central-1">eu-central-1</option>
-				<option value="us-east-1">us-east-1</option>
-				<option value="us-east-2">us-east-2</option>
-				<option value="us-west-1">us-west-1</option>
-				<option value="us-west-2">us-west-2</option>
-				<option value="sa-east-1">sa-east-1</option>
-				<option value="ca-central-1">ca-central-1</option>
-				<option value="ap-south-1">ap-south-1</option>
-				<option value="ap-northeast-1">ap-northeast-1</option>
-				<option value="ap-northeast-2">ap-northeast-2</option>
-				<option value="ap-southeast-1">ap-southeast-1</option>
-				<option value="ap-southeast-2">ap-southeast-2</option>
-			</select><br>
-
-			<label for="bucketName">Enter S3 bucket name:</label>
-			<input type="text" id="bucketName"><br>
-
-			<label for="file">Select a file to upload:</label>
-			<input type="file" id="file"><br>
-
-			<button type="button" id="uploadButton">Upload File</button>
-		</form>
-
-		<div id="debug"></div>
-
-		<script src="app.js"></script>
-	</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://sdk.amazonaws.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self' https://s3.<REGION>.amazonaws.com; frame-src 'self'; font-src 'self';">
+    <title>Upload to S3</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form>
+      <label for="region">Select region:</label>
+      <select name="region" id="region">
+        <option value="eu-west-1">eu-west-1</option>
+        <option value="eu-west-2">eu-west-2</option>
+        <option value="eu-west-3">eu-west-3</option>
+        <option value="eu-central-1">eu-central-1</option>
+        <option value="us-east-1">us-east-1</option>
+        <option value="us-east-2">us-east-2</option>
+        <option value="us-west-1">us-west-1</option>
+        <option value="us-west-2">us-west-2</option>
+        <option value="sa-east-1">sa-east-1</option>
+        <option value="ca-central-1">ca-central-1</option>
+        <option value="ap-south-1">ap-south-1</option>
+        <option value="ap-northeast-1">ap-northeast-1</option>
+        <option value="ap-northeast-2">ap-northeast-2</option>
+        <option value="ap-southeast-1">ap-southeast-1</option>
+        <option value="ap-southeast-2">ap-southeast-2</option>
+      </select>
+      <label for="bucket">Bucket name:</label>
+      <input type="text" name="bucket" id="bucket" />
+      <label for="file">Select file to upload:</label>
+      <input type="file" name="file" id="file" />
+      <button type="button" id="upload-btn">Upload</button>
+    </form>
+    <div id="debug"></div>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1021.0.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
+
