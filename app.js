@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Load AWS SDK
-  var script = document.createElement('script');
-  script.src = 'https://sdk.amazonaws.com/js/aws-sdk-2.103.0.min.js';
-  document.head.appendChild(script);
-
   // Initialize AWS SDK once it has finished loading
   script.onload = function() {
     AWS.config.region = 'us-west-2'; // Set default region
@@ -11,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Upload file to S3 bucket
     function uploadFile() {
-      var bucketName = document.getElementById('bucketName').value;
+      var bucketName = document.getElementById('bucket').value;
       var file = document.getElementById('file').files[0];
 
       // Ensure that a file was selected
@@ -39,6 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Attach event listener to upload button
-    document.getElementById('uploadButton').addEventListener('click', uploadFile);
+    document.getElementById('upload-btn').addEventListener('click', uploadFile);
   };
 });
