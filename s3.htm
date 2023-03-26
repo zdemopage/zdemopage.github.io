@@ -1,67 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>Upload to S3</title>
-	<script src="https://sdk.amazonaws.com/js/aws-sdk-3.8.0.min.js"></script>
-   <!-- <link rel="stylesheet" href="style.css"> -->
-</head>
-<body>
-	<h1>Upload to S3</h1>
-	<form id="uploadForm">
-		<label for="region">Select AWS region:</label>
-		<select name="region" id="region">
-			<option value="us-east-1">us-east-1</option>
-			<option value="us-east-2">us-east-2</option>
-			<option value="us-west-1">us-west-1</option>
-			<option value="us-west-2">us-west-2</option>
-			<option value="eu-west-1">eu-west-1</option>
-			<option value="eu-west-2">eu-west-2</option>
-			<option value="eu-west-3">eu-west-3</option>
-			<option value="ca-central-1">ca-central-1</option>
-			<option value="sa-east-1">sa-east-1</option>
-			<option value="ap-south-1">ap-south-1</option>
-			<option value="ap-northeast-1">ap-northeast-1</option>
-			<option value="ap-northeast-2">ap-northeast-2</option>
-			<option value="ap-southeast-1">ap-southeast-1</option>
-			<option value="ap-southeast-2">ap-southeast-2</option>
-		</select><br><br>
-		<label for="bucketName">S3 bucket name:</label>
-		<input type="text" name="bucketName" id="bucketName"><br><br>
-		<label for="file">Choose file:</label>
-		<input type="file" name="file" id="file"><br><br>
-		<button type="button" onclick="uploadFile()">Upload file</button>
-	</form>
-	<div id="debugInfo"></div>
+	<head>
+		<title>AWS S3 File Uploader</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<h1>AWS S3 File Uploader</h1>
+		<form>
+			<label for="region">Select a region:</label>
+			<select id="region">
+				<option value="eu-west-1">eu-west-1</option>
+				<option value="eu-west-2">eu-west-2</option>
+				<option value="eu-west-3">eu-west-3</option>
+				<option value="eu-central-1">eu-central-1</option>
+				<option value="us-east-1">us-east-1</option>
+				<option value="us-east-2">us-east-2</option>
+				<option value="us-west-1">us-west-1</option>
+				<option value="us-west-2">us-west-2</option>
+				<option value="sa-east-1">sa-east-1</option>
+				<option value="ca-central-1">ca-central-1</option>
+				<option value="ap-south-1">ap-south-1</option>
+				<option value="ap-northeast-1">ap-northeast-1</option>
+				<option value="ap-northeast-2">ap-northeast-2</option>
+				<option value="ap-southeast-1">ap-southeast-1</option>
+				<option value="ap-southeast-2">ap-southeast-2</option>
+			</select><br>
 
-	<script>
-		function uploadFile() {
-			var bucketName = document.getElementById("bucketName").value;
-			var region = document.getElementById("region").value;
-			var file = document.getElementById("file").files[0];
-			if (!bucketName || !file) {
-				alert("Please enter a bucket name and select a file");
-				return;
-			}
-			var s3 = new AWS.S3({
-				apiVersion: "2006-03-01",
-				region: region
-			});
-			var params = {
-				Bucket: bucketName,
-				Key: file.name,
-				ContentType: file.type,
-				Body: file,
-				ACL: "public-read"
-			};
-			s3.putObject(params, function(err, data) {
-				if (err) {
-					document.getElementById("debugInfo").innerHTML = "Error: " + err.message;
-				} else {
-					document.getElementById("debugInfo").innerHTML = "Upload successful";
-				}
-			});
-		}
-	</script>
-</body>
+			<label for="bucketName">Enter S3 bucket name:</label>
+			<input type="text" id="bucketName"><br>
+
+			<label for="file">Select a file to upload:</label>
+			<input type="file" id="file"><br>
+
+			<button type="button" id="uploadButton">Upload File</button>
+		</form>
+
+		<div id="debug"></div>
+
+		<script src="app.js"></script>
+	</body>
 </html>
