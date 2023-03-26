@@ -1,46 +1,72 @@
-body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-}
-
-h1 {
-	text-align: center;
-}
-
+/* Form styles */
 form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 2em auto;
-	width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  max-width: 40rem;
+  width: 100%;
 }
 
-label {
-	font-weight: bold;
-	margin-bottom: 0.5em;
+form label,
+form input,
+form button {
+  margin: 0.5rem 0;
 }
 
-select, input[type="text"], input[type="file"] {
-	margin-bottom: 1em;
+form label {
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
-button {
-    display: block;
-    margin: 0 auto;
-	background-color: #4285f4;
-	color: white;
-	padding: 0.5em 1em;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
+form input[type="text"],
+form input[type="file"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.3rem;
+  width: 100%;
+  max-width: 30rem;
 }
 
-button:hover {
-	background-color: #3367d6;
+form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
+form button:hover {
+  background-color: #0062cc;
+}
+
+/* Debug div styles */
 #debug {
-	text-align: center;
-	margin-top: 2em;
+  background-color: #242424;
+  color: #fff;
+  padding: 0.5rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+  max-width: 40rem;
+  width: 100%;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  margin-bottom: 2rem;
+}
+
+#debug:before {
+  content: "$ ";
+  display: inline;
+}
+
+#debug span {
+  color: #6be234;
+}
+
+#debug code {
+  color: #e6db74;
 }
