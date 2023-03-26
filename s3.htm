@@ -7,6 +7,8 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://sdk.amazonaws.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self' https://s3.eu-west-1.amazonaws.com; frame-src 'self'; font-src 'self';">
     <title>Upload to S3</title>
     <link rel="stylesheet" href="s3.css" />
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.986.0.min.js"></script>
+    <script src="s3.js"></script>
   </head>
   <body>
     <form>
@@ -35,8 +37,6 @@
       <button type="button" id="upload-btn">Upload</button>
     </form>
     <div id="debug"></div>
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1021.0.min.js"></script>
-    <script src="app.js"></script>
   </body>
 </html>
 
