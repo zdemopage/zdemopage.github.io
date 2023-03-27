@@ -8,14 +8,26 @@ function uploadObject() {
   const aws_region = document.getElementById('region-select').value;
   const bucketName = document.getElementById('bucket').value;
 
-  // Get the file from the form input
-  const fileInput = document.getElementById('fileInput');  
+  // Get the file from the form input  
+  const fileInput = document.getElementById('fileInput');
   const file = fileInput.files[0];
-  const s3Url = 'https://' + bucketName + '.s3.amazonaws.com/' + file.name;
-  const xhr = new XMLHttpRequest();
-  xhr.open('PUT', s3Url, true);
-  xhr.setRequestHeader('Content-Type', file.type);
-  xhr.send(file);
+  const fileName = file.name;
+  const bucketUrl = 'https://uber.s3.amazonaws.com/';
+  const fileUrl = bucketUrl + fileName;
+  fetch(fileUrl, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': file.type
+    },
+    body: file
+  })
+  .then(response => {
+    console.log("File uploaded successfully to: ", fileUrl);
+  })
+  .catch(error => {
+    console.log("Error uploading file: ", error);
+  });
+
 
   // Set the S3 bucket params
   // const AWS = window.AWS;
