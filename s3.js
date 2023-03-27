@@ -12,13 +12,12 @@ function uploadObject() {
   var fileInput = document.getElementById("fileInput");
   var file = fileInput.files[0];
 
-  // Set the S3 bucket params
+  // Set the S3 bucket params  
   var s3 = new AWS.S3({
     apiVersion: '2006-03-01',
     signatureVersion: "v4",
     region: aws_region,
-    maxRetries: 15,
-    signRequest: false
+    maxRetries: 15
   });
   
   var params = {
