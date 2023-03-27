@@ -16,6 +16,7 @@ function uploadObject() {
   //const AWS = window.AWS;
   //AWS.EventListeners.Core.removeListener('validate', AWS.EventListeners.Core.VALIDATE_PARAMETERS);
 
+  var AWS = require('aws-sdk');
   var s3 = new AWS.S3({
     apiVersion: '2006-03-01',
     signatureVersion: 'v4',
@@ -27,7 +28,9 @@ function uploadObject() {
   
   var params = {
     Bucket: bucketName,
-    Body: file
+    Key: file.name,
+    Body: file.name,
+    ACL: "public-read"
   };
   
   console.log("form: ", form);
