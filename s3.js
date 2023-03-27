@@ -58,15 +58,8 @@ function uploadObject() {
   });
 
   // Debug functionality
-  //s3.on('send', (data) => {
-  //  console.log('Request:', data.request);
-  //  console.log('Response:', data.response);
-  //});
-
-  // Show the debug div if it has content
-  //setInterval(() => {
-  //  if (debug.classList.contains('has-content')) {
-  //    debug.style.display = 'block';
-  //  }
-  //}, 1000);
+  s3.on('send', (data) => {
+    console.log('Request: ', data.request);
+    console.log('Response: ', data.response);
+  });
 }
