@@ -9,7 +9,7 @@ function uploadObject() {
   var bucketName = document.getElementById('bucket').value;
 
   // Get the file from the form input
-  var fileInput = document.getElementById('file-input');
+  var fileInput = document.getElementById("fileInput");
   console.log("fileInput:", fileInput);
   
   var file = fileInput.files[0];
