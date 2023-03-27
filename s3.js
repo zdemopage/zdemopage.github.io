@@ -9,9 +9,9 @@ function uploadObject() {
   const bucketName = document.getElementById('bucket').value;
 
   // Get the file from the form input
-  const s3Url = 'https://' + bucketName + '.s3.amazonaws.com/' + fileName;
   const fileInput = document.getElementById('fileInput');  
   const file = fileInput.files[0];
+  const s3Url = 'https://' + bucketName + '.s3.amazonaws.com/' + file.name;
   const xhr = new XMLHttpRequest();
   xhr.open('PUT', s3Url, true);
   xhr.setRequestHeader('Content-Type', file.type);
