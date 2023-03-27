@@ -23,11 +23,10 @@ function uploadObject() {
     signRequest: false
   });
     
-  var params = {
-    Bucket: bucketName,
-    Key: file.name,
-    Body: file
-  };
+  var params = new Map(); 
+  params.set(Bucket, bucketName);
+  params.set(Key, file.name);
+  params.set(Body, file);
   
   console.log("form: ", form);
   console.log("debug: ", debug);
