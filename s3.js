@@ -13,7 +13,7 @@ function uploadObject() {
   var fileContents;
   reader.readAsText(file);
   reader.onload = function() {
-    fileContents = fileReader.result;
+    fileContents = reader.result;
   }; 
   
   // Set the S3 bucket params
