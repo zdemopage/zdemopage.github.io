@@ -35,12 +35,12 @@ function uploadObject() {
   // Make an unauthenticated request to the S3 bucket
   s3.upload(params, function(err, data) {
     if (err) {
-      debugDiv.innerHTML = `Error sending file: ${err.message}`;
-      debugDiv.classList.add('has-content');
+      debug.innerHTML = `Error sending file: ${err.message}`;
+      debug.classList.add('has-content');
       console.log(err, err.stack);
     } else {
-      debugDiv.innerHTML = `File sent successfully: ${data.Location}`;
-      debugDiv.classList.add('has-content');
+      debug.innerHTML = `File sent successfully: ${data.Location}`;
+      debug.classList.add('has-content');
       console.log("File sent successfully to: ", data.Location);
     }
   });
@@ -53,8 +53,8 @@ function uploadObject() {
 
   // Show the debug div if it has content
   setInterval(() => {
-    if (debugDiv.classList.contains('has-content')) {
-      debugDiv.style.display = 'block';
+    if (debug.classList.contains('has-content')) {
+      debug.style.display = 'block';
     }
   }, 1000);
 }
