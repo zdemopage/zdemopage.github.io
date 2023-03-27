@@ -3,8 +3,7 @@ function uploadObject() {
   var s3 = new AWS.S3({
     apiVersion: '2006-03-01',
     region: "eu-west-1",
-    signatureVersion: "v4",
-    signRequest: false
+    signatureVersion: "v4"
   });
 
   // Get the form and debug div elements
@@ -24,6 +23,8 @@ function uploadObject() {
 
   // Set the S3 bucket params
   s3.config.update({ region });
+  s3.config.update({ signRequest: false });
+  
   var params = {
     Bucket: bucketName,
     Key: file.name,
