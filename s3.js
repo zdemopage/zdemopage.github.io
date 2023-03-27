@@ -10,10 +10,7 @@ function uploadObject() {
 
   // Get the file from the form input
   var fileInput = document.getElementById("fileInput");
-  console.log("fileInput:", fileInput);
-  
   var file = fileInput.files[0];
-  console.log("file:", file);
 
   // Set the S3 bucket params
   var s3 = new AWS.S3({
@@ -29,8 +26,16 @@ function uploadObject() {
     Key: file.name,
     ContentType: file.type,
     Body: file,
-    ACL: "public-read"
+    ACL: 'public-read'
   };
+  
+  console.log("form:", form);
+  console.log("debug:", debug);
+  console.log("bucketName:", bucketName);
+  console.log("fileInput:", fileInput);
+  console.log("file:", file);
+  console.log("s3:", s3);
+  console.log("params:", params);
 
   // Make an unauthenticated request to the S3 bucket
   s3.makeUnauthenticatedRequest('PutObject', params, function(err, data) {
@@ -46,15 +51,15 @@ function uploadObject() {
   });
 
   // Debug functionality
-  s3.on('send', (data) => {
-    console.log('Request:', data.request);
-    console.log('Response:', data.response);
-  });
+  //s3.on('send', (data) => {
+  //  console.log('Request:', data.request);
+  //  console.log('Response:', data.response);
+  //});
 
   // Show the debug div if it has content
-  setInterval(() => {
-    if (debug.classList.contains('has-content')) {
-      debug.style.display = 'block';
-    }
-  }, 1000);
+  //setInterval(() => {
+  //  if (debug.classList.contains('has-content')) {
+  //    debug.style.display = 'block';
+  //  }
+  //}, 1000);
 }
