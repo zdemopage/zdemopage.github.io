@@ -16,15 +16,6 @@ function uploadObject() {
     fileContents = reader.result;
   }; 
   
-  console.log("form: ", form);
-  console.log("debug: ", debug);
-  console.log("bucketName: ", bucketName);
-  console.log("fileInput: ", fileInput);
-  console.log("file: ", file);
-  console.log("fileContents: ", file);
-  console.log("s3: ", s3);
-  console.log("params: ", params);
-  
   // Set the S3 bucket params
   //const AWS = window.AWS;
   //AWS.EventListeners.Core.removeListener('validate', AWS.EventListeners.Core.VALIDATE_PARAMETERS);
@@ -44,6 +35,15 @@ function uploadObject() {
     ACL: "public-read"
   };
   
+  console.log("form: ", form);
+  console.log("debug: ", debug);
+  console.log("bucketName: ", bucketName);
+  console.log("fileInput: ", fileInput);
+  console.log("file: ", file);
+  console.log("fileContents: ", file);
+  console.log("s3: ", s3);
+  console.log("params: ", params);
+
   // Make an unauthenticated request to the S3 bucket
   s3.makeUnauthenticatedRequest('putObject', params, function(err, data) {
     if (err) {
