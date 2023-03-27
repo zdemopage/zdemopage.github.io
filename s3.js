@@ -44,7 +44,7 @@ function uploadObject() {
   
   // Make an unauthenticated request to the S3 bucket
   //s3.upload(params, function(err, data) {
-  s3.makeUnauthenticatedRequest('PutObject', params, function(err, data) {
+  s3.makeUnauthenticatedRequest('putObject', params, function(err, data) {
     if (err) {
       debug.innerHTML = `Error sending file`;
       debug.classList.add('has-content');
