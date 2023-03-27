@@ -1,14 +1,13 @@
 // Initialize the S3 client
 function uploadObject() {
   // Get the form and debug div elements
-  const form = document.getElementById('upload-form');
+  const form  = document.getElementById('upload-form');
   const debug = document.getElementById('debug');
 
   // Get the selected region and bucket name
   const aws_region = document.getElementById('region-select').value;
   const bucketName = document.getElementById('bucket').value;
-  const reader = new FileReader();
-  const fileInput = document.getElementById('fileInput');
+  const fileInput  = document.getElementById('fileInput');
   const file = fileInput.files[0];
   var fileContents;
   
@@ -46,7 +45,7 @@ function uploadObject() {
     } else {
       debug.innerHTML = `File sent successfully`;
       debug.classList.add('has-content');
-      console.log("OK! ");
+      console.log("OK!");
     }
   });
 }
