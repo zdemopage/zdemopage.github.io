@@ -11,9 +11,9 @@
     <script src="s3.js"></script>
   </head>
   <body>
-    <form>
+    <form id="upload-form">
       <label for="region">Select region:</label>
-      <select name="region" id="region">
+      <select name="region" id="region-select">
         <option value="eu-west-1">eu-west-1</option>
         <option value="eu-west-2">eu-west-2</option>
         <option value="eu-west-3">eu-west-3</option>
@@ -30,11 +30,11 @@
         <option value="ap-southeast-1">ap-southeast-1</option>
         <option value="ap-southeast-2">ap-southeast-2</option>
       </select>
-      <label for="bucket">Bucket name:</label>
+      <label for="bucket" id="bucket-input">Bucket name:</label>
       <input type="text" name="bucket" id="bucket" />
       <label for="file">Select file to upload:</label>
-      <input type="file" name="file" id="file" />
-      <button type="button" id="upload-btn">Upload</button>
+      <input type="file" name="file" id="file-input" />
+      <button type="button" id="upload-btn" onclick="uploadObject()">Upload</button>
     </form>
     <div id="debug"></div>
   </body>
