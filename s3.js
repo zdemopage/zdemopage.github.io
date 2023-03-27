@@ -1,18 +1,12 @@
 // Initialize the S3 client
 function uploadObject() {
-  var s3 = new AWS.S3({
-    apiVersion: '2006-03-01',
-    region: "eu-west-1",
-    signatureVersion: "v4"
-  });
-
   // Get the form and debug div elements
   var form = document.getElementById('upload-form');
   var debug = document.getElementById('debug');
 
   // Get the selected region and bucket name
-  const region = document.getElementById('region-select').value;
-  const bucketName = document.getElementById('bucket').value;
+  var aws_region = document.getElementById('region-select').value;
+  var bucketName = document.getElementById('bucket').value;
 
   // Get the file from the form input
   var fileInput = document.getElementById('file-input');
@@ -22,8 +16,13 @@ function uploadObject() {
   console.log("file:", file);
 
   // Set the S3 bucket params
-  s3.config.update({ region });
-  s3.config.update({ signRequest: false });
+  var s3 = new AWS.S3({
+    apiVersion: '2006-03-01',
+    signatureVersion: "v4",
+    region: aws_region,
+    maxRetries: 15,
+    signRequest: false
+  });
   
   var params = {
     Bucket: bucketName,
@@ -34,7 +33,7 @@ function uploadObject() {
   };
 
   // Make an unauthenticated request to the S3 bucket
-  s3.upload(params, function(err, data) {
+  s3.makeUnauthenticatedRequest(params, function(err, data) {
     if (err) {
       debug.innerHTML = `Error sending file`;
       debug.classList.add('has-content');
