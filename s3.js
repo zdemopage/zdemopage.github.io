@@ -11,14 +11,8 @@ function uploadObject() {
   const fileInput = document.getElementById('fileInput');
   const file = fileInput.files[0];
   var fileContents;
-  reader.readAsText(file);
-  reader.onload = function() {
-    fileContents = reader.result;
-  }; 
   
   // Set the S3 bucket params
-  //const AWS = window.AWS;
-  //AWS.EventListeners.Core.removeListener('validate', AWS.EventListeners.Core.VALIDATE_PARAMETERS);
   const s3 = new AWS.S3({
     apiVersion: '2006-03-01',
     signatureVersion: 'v4',
@@ -40,7 +34,6 @@ function uploadObject() {
   console.log("bucketName: ", bucketName);
   console.log("fileInput: ", fileInput);
   console.log("file: ", file);
-  console.log("fileContents: ", file);
   console.log("s3: ", s3);
   console.log("params: ", params);
 
@@ -53,13 +46,7 @@ function uploadObject() {
     } else {
       debug.innerHTML = `File sent successfully`;
       debug.classList.add('has-content');
-      console.log("OK: ", data.Body);
+      console.log("OK! ");
     }
-  });
-
-  // Debug functionality
-  s3.on('send', (data) => {
-    console.log('Request: ', data.request);
-    console.log('Response: ', data.response);
   });
 }
