@@ -14,7 +14,7 @@ function uploadObject() {
 
   // Set the S3 bucket params
   const AWS = window.AWS;
-  AWS.EventListeners.Core.removeListener('validate', AWS.EventListeners.Core.VALIDATE_REGION);
+  AWS.EventListeners.Core.removeListener('validate', AWS.EventListeners.Core.VALIDATE_PARAMETERS);
 
   var s3 = new AWS.S3({
     apiVersion: '2006-03-01',
