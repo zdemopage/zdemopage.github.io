@@ -26,7 +26,7 @@ function uploadObject() {
   var params = {
     Bucket: bucketName,
     Key: file.name,
-    Body: "Testando 123"
+    Body: file
   };
   
   console.log("form: ", form);
