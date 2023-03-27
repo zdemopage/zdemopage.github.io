@@ -10,8 +10,11 @@ function uploadObject() {
   const reader = new FileReader();
   const fileInput = document.getElementById('fileInput');
   const file = fileInput.files[0];
+  var fileContents;
   reader.readAsText(file);
-  const fileContents = reader.result;
+  reader.onload = function() {
+    fileContents = fileReader.result;
+  }; 
   
   // Set the S3 bucket params
   //const AWS = window.AWS;
