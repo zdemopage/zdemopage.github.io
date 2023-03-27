@@ -24,9 +24,9 @@ function uploadObject() {
   });
     
   var params = new Map(); 
-  params.set(Bucket, bucketName);
-  params.set(Key, file.name);
-  params.set(Body, file);
+  params.set('Bucket', bucketName);
+  params.set('Key', file.name);
+  params.set('Body', file);
   
   console.log("form: ", form);
   console.log("debug: ", debug);
