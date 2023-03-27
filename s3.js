@@ -36,11 +36,11 @@ function uploadObject() {
   // Make an unauthenticated request to the S3 bucket
   s3.upload(params, function(err, data) {
     if (err) {
-      debug.innerHTML = `Error sending file: ${err.message}`;
+      debug.innerHTML = `Error sending file`;
       debug.classList.add('has-content');
       console.log(err, err.stack);
     } else {
-      debug.innerHTML = `File sent successfully: ${data.Location}`;
+      debug.innerHTML = `File sent successfully`;
       debug.classList.add('has-content');
       console.log("File sent successfully to: ", data.Location);
     }
