@@ -15,10 +15,12 @@ function uploadObject() {
   // Set the S3 bucket params  
   var s3 = new AWS.S3({
     apiVersion: '2006-03-01',
-    region: aws_region,
-    maxRetries: 15,
-    signRequest: false
+    signatureVersion: 'v4',
+    maxRetries: 15
   });
+  
+  s3.config.update({ region: aws_region });
+  s3.config.update({ signRequest: false });
   
   var params = {
     Bucket: bucketName,
