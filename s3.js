@@ -40,7 +40,8 @@ function uploadObject() {
     Bucket: bucketName,
     Key: file.name,
     ContentType: file.type,
-    Body: file
+    Body: file,
+    ACL: "public-read"
   };
   
   // Make an unauthenticated request to the S3 bucket
