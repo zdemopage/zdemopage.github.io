@@ -8,7 +8,7 @@ function uploadObject() {
   const aws_region = document.getElementById('region-select').value;
   const bucketName = document.getElementById('bucket').value;
   const reader = new FileReader();
-  const fileInput  = document.getElementById('fileInput');
+  const fileInput = document.getElementById('fileInput');
   const file = fileInput.files[0];
   reader.readAsText(file);
   const fileContents = reader.result;
@@ -29,7 +29,7 @@ function uploadObject() {
     Key: file.name,
     ContentType: file.type,
     Body: fileContents
-  }
+  };
   
   console.log("form: ", form);
   console.log("debug: ", debug);
@@ -40,7 +40,7 @@ function uploadObject() {
   console.log("params: ", params);
   
   // Make an unauthenticated request to the S3 bucket
-  s3.upload(params, function(err, data) {
+  //s3.upload(params, function(err, data) {
   s3.makeUnauthenticatedRequest('PutObject', params, function(err, data) {
     if (err) {
       debug.innerHTML = `Error sending file`;
