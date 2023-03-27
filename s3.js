@@ -13,7 +13,7 @@ function uploadObject() {
   var file = fileInput.files[0];
 
   // Set the S3 bucket params
-  var AWS = window.AWS;
+  const AWS = window.AWS;
   AWS.EventListeners.Core.removeListener('validate', aws.EventListeners.Core.VALIDATE_REGION);
 
   var s3 = new AWS.S3({
