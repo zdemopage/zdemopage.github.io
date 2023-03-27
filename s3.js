@@ -18,17 +18,15 @@ function uploadObject() {
   var s3 = new AWS.S3({
     apiVersion: '2006-03-01',
     signatureVersion: 'v4',
-    maxRetries: 15
+    maxRetries: 15,
+    region: aws_region,
+    signRequest: false
   });
-  
-  s3.config.update({ region: aws_region });
-  s3.config.update({ signRequest: false });
-  
+    
   var params = {
     Bucket: bucketName,
     Key: file.name,
-    Body: file.name,
-    ACL: "public-read"
+    Body: "Testando 123"
   };
   
   console.log("form: ", form);
